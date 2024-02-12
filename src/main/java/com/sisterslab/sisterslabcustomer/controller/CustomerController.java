@@ -3,6 +3,7 @@ package com.sisterslab.sisterslabcustomer.controller;
 import com.sisterslab.sisterslabcustomer.model.Customer;
 import com.sisterslab.sisterslabcustomer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,12 +36,12 @@ public class CustomerController {
     }
 
     @PutMapping("{id}")
-    public String updateFirstName(@PathVariable Long id,@RequestBody Customer customer){
-        return customerService.updateFirstName(id,customer);
+    public String updateFirstName(@PathVariable Long id, @RequestBody Customer customer) {
+        return customerService.updateFirstName(id, customer);
     }
 
-
-
-
-
+    @DeleteMapping("{id}")
+    public void deleteCustomerById(@PathVariable Long id) {
+        customerService.deleteCustomerById(id);
+    }
 }
